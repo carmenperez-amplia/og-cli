@@ -37,7 +37,15 @@ These standard options are shared across the `config` blocks of most widgets:
 | Field | Type | Default | Description |
 |---|---|---|---|
 | `title` | `string` | - | The user-visible header text of the widget. |
-| `hideWidgetTitle` | `string` | `"visible"` | Title bar visibility state (`"visible"` or `"hidden"`). |
+| `hideWidgetTitle` | `string` | `"visible"` | Title bar visibility state (`"dynamic"`, `"visible"` or `"hidden"`). |
 | `boxed` | `boolean` | `true` / `false` | Wraps the widget container in a visual card border outline. |
 | `reloadPeriod` | `string` / `integer` | `"0"` | Period (seconds) to automatically refresh widget data (`"0"` to disable). |
 | `about` | `string` | `""` | User-defined descriptive markdown text shown in the widget's info panel. |
+| `customActions` | `array` | [] | Array of custom actions to add to the widget's title bar. Each action has an icon, a title, and the code to execute when clicked. Default is `[]`. Definition can be found in [Custom Actions Object](#custom-actions-object). |
+
+#### Custom Actions Object
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `icon` | `string` | - | The icon to display for the action. |
+| `_actionCode` | `string` | - | The javascript code to execute when the action is clicked. |
+| `title` | `string` | - | The title of the action. |
