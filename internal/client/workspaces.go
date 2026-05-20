@@ -220,7 +220,7 @@ func (c *Client) ImportWorkspaceDeep(w *Workspace) error {
 		if err != nil {
 			return fmt.Errorf("marshaling dashboard %s: %w", dash.ID, err)
 		}
-		if _, err := c.CreateDashboard(dashRaw, ""); err != nil {
+		if _, err := c.CreateDashboard(dashRaw, w.ID); err != nil {
 			return fmt.Errorf("creating dashboard %s: %w", dash.ID, err)
 		}
 	}

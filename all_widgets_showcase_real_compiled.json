@@ -1,0 +1,276 @@
+{
+  "name": "All-Widgets-Showcase",
+  "icon": "ogicon-settings",
+  "actions": [
+    "createDevice",
+    "executeOperation",
+    "createArea",
+    "createAsset"
+  ],
+  "widget_action": {
+    "createDevice": "entities",
+    "createTicket": "tickets",
+    "deviceCollection": "deviceCollection",
+    "editDevice": "entities",
+    "executeOperation": "operations"
+  },
+  "dashboards": [
+    {
+      "x": 0,
+      "y": 0,
+      "width": 2,
+      "height": 1,
+      "w": 0,
+      "h": 0,
+      "id": "dashboard-showcase-001",
+      "dashboard": {
+        "title": "All Widgets Showcase Dashboard",
+        "icon": "ogicon-dashboard",
+        "iconType": "icon",
+        "editable": true,
+        "extraConfig": {
+          "cellHeight": 150,
+          "favourite": true
+        },
+        "grid": [
+          {
+            "width": 6,
+            "height": 3,
+            "x": 0,
+            "y": 0,
+            "w": 6,
+            "h": 3,
+            "i": "widget-custom-table-001",
+            "definition": {
+              "type": "customTable",
+              "wid": "widget-custom-table-001",
+              "config": {
+                "allowGrouping": true,
+                "allowPagination": 0,
+                "allowWidgetFilter": true,
+                "boxed": true,
+                "columns": [
+                  {
+                    "divider": true,
+                    "filterable": true,
+                    "groupable": true,
+                    "isOgIdentifier": true,
+                    "operator": "eq",
+                    "sortable": true,
+                    "text": "Device ID",
+                    "type": "text",
+                    "value": "provision.device.identifier"
+                  },
+                  {
+                    "divider": true,
+                    "filterable": true,
+                    "groupable": true,
+                    "operator": "eq",
+                    "sortable": true,
+                    "text": "Operational Status",
+                    "type": "text",
+                    "value": "provision.device.operationalStatus"
+                  }
+                ],
+                "compactTable": true,
+                "expandable": true,
+                "hideWidgetTitle": "visible",
+                "pageElements": 15,
+                "reloadPeriod": "0",
+                "title": "Custom Device Table Showcase"
+              }
+            }
+          },
+          {
+            "width": 6,
+            "height": 3,
+            "x": 6,
+            "y": 0,
+            "w": 6,
+            "h": 3,
+            "i": "widget-custom-chart-001",
+            "definition": {
+              "type": "customChart",
+              "wid": "widget-custom-chart-001",
+              "config": {
+                "allowWidgetFilter": true,
+                "boxed": true,
+                "hideWidgetTitle": "visible",
+                "title": "Temperature Evolution Chart"
+              }
+            }
+          },
+          {
+            "width": 4,
+            "height": 2,
+            "x": 0,
+            "y": 3,
+            "w": 4,
+            "h": 2,
+            "i": "widget-custom-action-001",
+            "definition": {
+              "type": "customAction",
+              "wid": "widget-custom-action-001",
+              "config": {
+                "boxed": true,
+                "description": "Send a restart command to the selected IoT entity.",
+                "formSchema": {
+                  "properties": {
+                    "restartType": {
+                      "enum": [
+                        "SOFT",
+                        "HARD"
+                      ],
+                      "title": "Restart Mode",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "hideWidgetTitle": "visible",
+                "icon": "ogicon-play",
+                "title": "Trigger Device Command"
+              }
+            }
+          },
+          {
+            "width": 4,
+            "height": 2,
+            "x": 4,
+            "y": 3,
+            "w": 4,
+            "h": 2,
+            "i": "widget-datamodel-browser-001",
+            "definition": {
+              "type": "datamodelBrowser",
+              "wid": "widget-datamodel-browser-001",
+              "config": {
+                "boxed": true,
+                "hideWidgetTitle": "visible",
+                "title": "Platform Datamodels Browser"
+              }
+            }
+          },
+          {
+            "width": 4,
+            "height": 2,
+            "x": 8,
+            "y": 3,
+            "w": 4,
+            "h": 2,
+            "i": "widget-alarms-list-001",
+            "definition": {
+              "type": "DeviceAlarmsList",
+              "wid": "widget-alarms-list-001",
+              "config": {
+                "boxed": true,
+                "columns": [
+                  {
+                    "isOgIdentifier": true,
+                    "path": "identifier",
+                    "title": "Alarm Identifier"
+                  },
+                  {
+                    "path": "severity",
+                    "title": "Alarm Severity"
+                  },
+                  {
+                    "path": "entityIdentifier",
+                    "title": "Device Identifier"
+                  },
+                  {
+                    "isDateTime": true,
+                    "path": "openingDate",
+                    "title": "Alarm Timestamp"
+                  }
+                ],
+                "hideWidgetTitle": "visible",
+                "pagination": 10,
+                "title": "Real-time Organization Alarms \u0026 Alerts"
+              }
+            }
+          },
+          {
+            "width": 6,
+            "height": 3,
+            "x": 0,
+            "y": 5,
+            "w": 6,
+            "h": 3,
+            "i": "widget-timeseries-001",
+            "definition": {
+              "type": "entityTimeseriesMultipleHistory",
+              "wid": "widget-timeseries-001",
+              "config": {
+                "boxed": true,
+                "chartType": "line",
+                "hideWidgetTitle": "visible",
+                "legendPosition": "top-compact",
+                "reloadPeriod": "0",
+                "resourceType": "entity.device",
+                "series": [
+                  {
+                    "dataset": {
+                      "identifier": "timeseries_dataset_id",
+                      "identifierColumn": "device_identifier",
+                      "name": "SystemPerformance",
+                      "organization": "default_org"
+                    },
+                    "dateColumn": {
+                      "alias": "bucket",
+                      "chartColor": "#E38605",
+                      "chartType": "line",
+                      "customPath": "provision.administration.identifier._current.at",
+                      "name": "bucket",
+                      "path": "bucket",
+                      "title": "Bucket Time",
+                      "type": "date-time"
+                    },
+                    "ogIdentifier": {
+                      "alias": "cpu_usage",
+                      "chartColor": "#f39910",
+                      "chartType": "line",
+                      "customPath": "device.cpu.usage._current.value",
+                      "name": "cpu_usage",
+                      "path": "cpu_usage",
+                      "title": "CPU Usage",
+                      "type": "number"
+                    },
+                    "preferredOrganization": "selected"
+                  }
+                ],
+                "title": "Historical CPU \u0026 Battery Timeseries",
+                "tooltipCondition": "item"
+              }
+            }
+          },
+          {
+            "width": 6,
+            "height": 3,
+            "x": 6,
+            "y": 5,
+            "w": 6,
+            "h": 3,
+            "i": "widget-maps-001",
+            "definition": {
+              "type": "maps",
+              "wid": "widget-maps-001",
+              "config": {
+                "boxed": true,
+                "hideWidgetTitle": "visible",
+                "mapType": "hybrid",
+                "title": "Geographic Assets \u0026 Concentrators Location",
+                "zoom": 12
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "priority": 1,
+  "others": {
+    "showInHome": true,
+    "mode": "grid"
+  }
+}

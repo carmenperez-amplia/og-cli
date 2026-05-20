@@ -1,0 +1,28 @@
+{
+  "width": 4,
+  "height": 3,
+  "x": 3,
+  "y": 0,
+  "w": 4,
+  "h": 3,
+  "i": "1776849089334-0",
+  "definition": {
+    "type": "deviceHierarchy",
+    "wid": "1776849089334-0",
+    "config": {
+      "about": "",
+      "boxed": false,
+      "collectionColor": "",
+      "customActions": null,
+      "entityKey": "ejemplo1",
+      "group": null,
+      "hideWidgetTitle": "visible",
+      "provisionColor": "",
+      "reloadPeriod": "0",
+      "title": "sgfhf",
+      "type": "2",
+      "viewSelected": 1,
+      "widgetBackgroundColor": ""
+    }
+  }
+}

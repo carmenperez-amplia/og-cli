@@ -1,0 +1,116 @@
+{
+  "width": 12,
+  "height": 2,
+  "x": 0,
+  "y": 3,
+  "w": 12,
+  "h": 2,
+  "i": "1777449188466-1",
+  "definition": {
+    "type": "DeviceAlarmsList",
+    "wid": "1777449188466-1",
+    "config": {
+      "about": "",
+      "boxed": false,
+      "columns": [
+        {
+          "isOgIdentifier": true,
+          "path": "identifier",
+          "title": "FORM.TITLE.ALARM.ID"
+        },
+        {
+          "path": "channel",
+          "title": "FORM.TITLE.CHANNEL"
+        },
+        {
+          "path": "organization",
+          "title": "FORM.TITLE.ORGANIZATION"
+        },
+        {
+          "_formatterRef": null,
+          "alias": "Nombre mayúsculas",
+          "path": "name",
+          "title": "FORM.TITLE.ALARM.NAME"
+        },
+        {
+          "path": "description",
+          "title": "FORM.TITLE.DESCRIPTION"
+        },
+        {
+          "path": "rule",
+          "title": "FORM.TITLE.RULE"
+        },
+        {
+          "isOgIdentifier": true,
+          "path": "entityIdentifier",
+          "title": "FORM.TITLE.ENTITY.ID"
+        },
+        {
+          "path": "resourceType",
+          "title": "FORM.TITLE.ENTITY.TYPE"
+        },
+        {
+          "isOgIdentifier": true,
+          "path": "subEntityIdentifier",
+          "title": "FORM.TITLE.SUBENTITY"
+        },
+        {
+          "path": "status",
+          "title": "FORM.TITLE.STATUS"
+        },
+        {
+          "path": "severity",
+          "title": "FORM.TITLE.SEVERITY"
+        },
+        {
+          "path": "priority",
+          "title": "FORM.TITLE.PRIORITY"
+        },
+        {
+          "isDateTime": true,
+          "path": "openingDate",
+          "title": "FORM.TITLE.OPENING.DATE"
+        },
+        {
+          "isDateTime": true,
+          "path": "attentionDate",
+          "title": "FORM.TITLE.ATTENTION.DATE"
+        },
+        {
+          "path": "attentionUser",
+          "title": "FORM.TITLE.ATTENTION.USER"
+        },
+        {
+          "path": "attentionNote",
+          "title": "FORM.TITLE.ATTENTION.NOTE"
+        },
+        {
+          "isDateTime": true,
+          "path": "closureDate",
+          "title": "FORM.TITLE.CLOSURE.DATE"
+        },
+        {
+          "path": "closureUser",
+          "title": "FORM.TITLE.CLOSURE.USER"
+        },
+        {
+          "path": "closureNote",
+          "title": "FORM.TITLE.CLOSURE.NOTE"
+        },
+        {
+          "path": "extra_info",
+          "title": "FORM.LABEL.EXTRA_INFO"
+        }
+      ],
+      "customActions": null,
+      "hideWidgetTitle": "visible",
+      "noShareFilter": false,
+      "noShareHeaderFilter": false,
+      "noShareHeaderSorting": false,
+      "pagination": 10,
+      "reloadPeriod": "0",
+      "sharePrivateFilter": false,
+      "title": ""
+    }
+  }
+}
