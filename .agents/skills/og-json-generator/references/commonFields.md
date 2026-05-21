@@ -25,7 +25,7 @@ Every widget definition has the following root fields:
 | Field | Type | Description |
 |---|---|---|
 | `type` | `string` | The widget class type identifier (e.g., `customTable`, `customChart`, `maps`, `DeviceAlarmsList`). |
-| `Ftype` | `string` | The primary functional resource category context (e.g. `*`, `alarms`, `maps`, `datasets`). |
+| `Ftype` | `string` | The primary functional resource category context (e.g. `*`, `alarms`, `maps`, `datasets`). It determines the compatibility between widgets and searching types when sharing filters between different widgets. |
 | `wid` | `string` | Unique widget instance ID. Usually formatted as `{timestamp}-{counter}`. |
 | `config` | `object` | Specific parameters required by the widget class type. |
 

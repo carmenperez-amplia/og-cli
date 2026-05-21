@@ -55,10 +55,11 @@ The custom script receives the following parameters:
 1. **`entityData`**: Provided if the dashboard is opened in a device/entity context.
 2. **`relatedEntities`**: Related entities data.
 3. **`timeserieData`** & **`alarmData`**: Contextual data from the platform.
-4. **`filters`**: 
+4. **`dashboardFilters`**: Dashboard filters contains the filters selected in the dashboard (e.g. tasks, jobs, operations, alarms, etc).
+5. **`filters`**: 
    - `generic`: Widget generic text filter.
    - `period`: Date range `{ "from": "...", "to": "..." }`.
-5. **`callback`**: Optional function used to send chart data when using asynchronous calls (`callback(chartConfig)`). Alternatively, the script can just `return chartConfig`.
+6. **`callback`**: Optional function used to send chart data when using asynchronous calls (`callback(chartConfig)`). Alternatively, the script can just `return chartConfig`.
 
 ## Expected Return Format
 
