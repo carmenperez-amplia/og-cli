@@ -9,37 +9,36 @@ This skill is designed to assist in creating and structuring the JSONs required 
 
 ## Decoupled Directory Structure
 
-To maintain a logical order and allow the CLI to easily interact with local elements, OpenGate workspace projects are structured as follows:
+To maintain a logical order and allow the CLI (`og workspace wrap` / `unwrap`) to easily interact with local elements, OpenGate workspace projects MUST follow this exact structure:
 
 ```text
 local_workspaces/
 └── <workspace_name>/                     # Workspace root directory
-    ├── workspace.json                    # Base workspace definition (id, name, description...)
-    └── dashboards/
-        └── <dashboard_name>/             # Own directory for each dashboard
-            ├── dashboard.json            # Dashboard configuration, layout (grid), and references
-            └── widgets/
-                ├── <widget_id_1>.json    # Individual widget configuration
-                ├── <widget_id_2>.json
-                └── customTable.json      # Example: Large table widget
+    ├── workspace.json                    # Base workspace definition (_id, name, description...)
+    └── <dashboard_folder_name>/          # Own directory for each dashboard (e.g. 00__dashboard1)
+        ├── dashboard.json                # Dashboard configuration AND _workspaceLayout block
+        └── <widget_folder_name>/         # Own directory for each widget (e.g. 00__myWidget)
+            └── widget.json               # Full GridItem wrapper (layout + definition)
 ```
 
 ### 1. `workspace.json`
-Contains the high-level configuration. It should not internally embed the full content of dashboards and widgets, since the CLI (through deployment commands) can package the folder structure when necessary to upload it.
+Contains the high-level configuration (`_id`, `name`, `others`). It MUST NOT internally embed the `dashboards` array; the CLI reads the subdirectories automatically.
 
 ### 2. `dashboard.json`
-Defines the global view configurations (e.g., `extraConfig`, `icon`, `title`) and the `grid` layout. Inside each grid element, instead of embedding the complete widget definition, a local reference pointing to the widget file can be used:
+Defines the global view configurations (`_id`, `title`, `icon`, etc.). **CRITICAL:** It must also include the `_workspaceLayout` object to link it to the workspace grid.
 ```json
 {
-  "width": 6,
-  "height": 3,
-  "x": 0,
-  "y": 0,
-  "widget": {
-    "$ref": "dashboards/<dashboard_name>/widgets/customTable.json"
-  }
+  "_workspaceLayout": {
+    "x": 0, "y": 0, "width": 1, "height": 1, "w": 1, "h": 1,
+    "id": "dashboard-1"
+  },
+  "_id": "dashboard-1",
+  "title": "My Dashboard"
 }
 ```
+
+### 3. `widget.json`
+Inside each widget folder, a file named exactly `widget.json` must exist. It MUST be a `GridItem` object containing the layout coordinates (`w`, `h`, `x`, `y`, `i`) AND a `definition` object with the widget properties, not just the widget config directly.
 
 ---
 
@@ -78,17 +77,21 @@ To bundle your modular workspace (resolving all widget `$ref` files) into a sing
 ### 3. Deploy Local Workspace to OpenGate API
 To package and upload/import your local modular workspace directly to the OpenGate platform in one command:
 ```bash
-./og-cli deploy [workspace_name]
+./og workspace deploy <workspace-dir>
 ```
+**CRITICAL DEPLOYMENT WARNING:** 
+- If you are creating a workspace from scratch, OR you have added **new dashboards**, you MUST run the command WITHOUT the `--update` flag. 
+- If you run `deploy --update` when a dashboard doesn't exist yet, it will fail to link properly in the API and the dashboard will appear empty or missing in the platform. Use `--update` ONLY when updating widgets or configurations of an existing workspace and existing dashboards.
 
 ---
 
 ## Skill Workflow
 
 1. **Analyze Requirements**: Determine if a new widget or a full dashboard is needed.
-2. **Generate Directory**: Use the hierarchical structure described above.
-3. **Build the Widget**: Start by consulting the **[Common Widget Fields Reference](file:///home/ubuntu/development/og-cli/.agents/skills/og-json-generator/references/commonFields.md)** for grid wrapping. Then, apply widget-specific parameters from the references below.
-4. **Link**: Ensure the `dashboard.json` has the appropriate layout grid coordinates (`w`, `h`, `x`, `y`) matching the widget's local `$ref` path.
+2. **Generate Directory**: Use the correct hierarchical structure (`workspace_name/dashboard_name/widget_name/widget.json`).
+3. **Build the Dashboard & Layout**: Ensure `dashboard.json` contains BOTH `_id` and `_workspaceLayout` with matching IDs.
+4. **Build the Widget (`widget.json`)**: Wrap the widget inside a `GridItem` (with `w`, `h`, `x`, `y`, `definition`) following the **[Common Widget Fields Reference](file:///home/ubuntu/development/og-cli/.agents/skills/og-json-generator/references/commonFields.md)**.
+5. **Deploy**: Use `./og workspace deploy <dir>`. Do NOT use `--update` if there are new dashboards.
 
 ---
 
@@ -101,6 +104,7 @@ For complex implementations that involve advanced custom script evaluations or s
 * [Custom Chart Reference (customChart)](file:///home/ubuntu/development/og-cli/.agents/skills/og-json-generator/references/customChart.md) - Custom ECharts integration.
 * [Custom Action Reference (customAction)](file:///home/ubuntu/development/og-cli/.agents/skills/og-json-generator/references/customAction.md) - Context manipulation, button operations, and expert-mode dynamic forms.
 * [Global Context & Utilities Reference](file:///home/ubuntu/development/og-cli/.agents/skills/og-json-generator/references/utils.md) - Standard sandboxed global objects (`$api`, `$user`, `$moment`, `http`) and UI navigation routing.
+* [Datamodel & Datastreams Reference](file:///home/ubuntu/development/og-cli/.agents/skills/og-json-generator/references/datamodel.md) - Full JSON schema for creating datamodels with categories and datastreams. Covers all fields (`period`, `access`, `schema`, `storage`, `unit`, `icon`), schema types, storage periods, and `og dm` CLI commands.
 
 ---
 

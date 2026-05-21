@@ -28,6 +28,8 @@ coverage.out
 
 # Local test artifacts and captures (may contain tokens / sensitive data)
 tmp/
+recursos/
+local_workspaces/
 wkf/
 .gemini/
 *.har
