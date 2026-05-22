@@ -175,9 +175,9 @@ Code used to format the rows. Function code is wrapped in a function with a defa
 
 ```javascript
 function (rowData, entityData) {
-    var rowFormatter = { style: ''}; // always included
+    var rowFormatter = { style: ''}; // always included in rowFormatter wrapper object
     // _formatterCode here your action here
-    return rowFormatter; // always included
+    return rowFormatter; // always included in rowFormatter wrapper object
 }
 ```
 
@@ -220,9 +220,9 @@ Code used to format the column value. Function code is wrapped in a function wit
 
 ```javascript
 function( value, rowData, entityData ) {
-    var cellFormatter = { style: '', leftIcon:'', rightIcon:'', customValue:''}; // always included
+    var cellFormatter = { style: '', leftIcon:'', rightIcon:'', customValue:''}; // always included in cellFormatter wrapper object
     // _formatterCode here your action here
-    return cellFormatter; // always included
+    return cellFormatter; // always included in cellFormatter wrapper object
 }
 ```
 

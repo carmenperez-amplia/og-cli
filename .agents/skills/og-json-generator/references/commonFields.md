@@ -52,7 +52,7 @@ These standard options are shared across the `config` blocks of most widgets:
 
 ## 4. Filter field configuration
 
-For those widgets that have a filter, they have the following configuration:
+For those widgets that have a filter (Ftype <> ""), they have the following configuration:
 
 | Field | Type | Default | Description |
 |---|---|---|---|
@@ -89,6 +89,7 @@ In advanced mode, `oql` has the filter defined in OQL format and `value` field h
 
 In shared mode, only the `id` field is added to the filter configuration to identify the widget from which the filter is copied. This `id` must match with the `wid` of the widget in the grid layout.
 The rest of the fields are copied from the widget with the given `wid`.
+Both widgets must be in the same dashboard and have the same `Ftype`.
 
 ``` json
 {

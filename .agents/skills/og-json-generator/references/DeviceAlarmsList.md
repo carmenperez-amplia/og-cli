@@ -41,7 +41,7 @@ See [Filter field configuration](./commonFields.md#Filter-field-configuration).
 
 Supported fields are the following:
 
-| filter field | equivalent alarm path |
+| filter field (used to build the filter) | equivalent alarm path (used to get the value for columns) |
 |---|---|
 | alarm.identifier | identifier | 
 | alarm.channel | channel | 
