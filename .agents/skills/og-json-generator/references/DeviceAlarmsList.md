@@ -34,3 +34,32 @@ Columns path (._current.* not allowed) for DeviceAlarmsList:
 * **extra_info** Alarm Extra Info
 
 All datastreams must exists in datamodels, otherwise the column will not be displayed or it will throw an error.
+
+### Filter configuration
+
+See [Filter field configuration](./commonFields.md#Filter-field-configuration).
+
+Supported fields are the following:
+
+| filter field | equivalent alarm path |
+|---|---|
+| alarm.identifier | identifier | 
+| alarm.channel | channel | 
+| alarm.organization | organization | 
+| alarm.name | name | 
+| alarm.description | description | 
+| alarm.rule | rule | 
+| alarm.entityIdentifier | entityIdentifier | 
+| alarm.resourceType | resourceType | 
+| alarm.subEntityIdentifier | subEntityIdentifier | 
+| alarm.status | status | 
+| alarm.severity | severity | 
+| alarm.priority | priority | 
+| alarm.openingDate | openingDate | 
+| alarm.attentionDate | attentionDate | 
+| alarm.attentionUser | attentionUser | 
+| alarm.attentionNote | attentionNote | 
+| alarm.closureDate | closureDate | 
+| alarm.closureUser | closureUser | 
+| alarm.closureNote | closureNote | 
+| alarm.extra_info | extra_info | 

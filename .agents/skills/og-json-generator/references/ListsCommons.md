@@ -171,13 +171,13 @@ Refer to [Common Widget Fields](./commonFields.md) for grid and standard widget 
 
 ### _formatterCode description
 
-Code used to format the rows. Function code is wrapped in a function: 
+Code used to format the rows. Function code is wrapped in a function with a default returned value: 
 
 ```javascript
 function (rowData, entityData) {
-    var rowFormatter = { style: ''};
+    var rowFormatter = { style: ''}; // always included
     // _formatterCode here your action here
-    return rowFormatter;
+    return rowFormatter; // always included
 }
 ```
 
@@ -216,13 +216,13 @@ Each kind of widget manages the path selection in a different way. See the speci
 
 ### Column _formatterCode description
 
-Code used to format the column value. Function code is wrapped in a function: 
+Code used to format the column value. Function code is wrapped in a function with a default returned value: 
 
 ```javascript
 function( value, rowData, entityData ) {
-    var cellFormatter = { style: '', leftIcon:'',rightIcon:'', customValue:''};
+    var cellFormatter = { style: '', leftIcon:'', rightIcon:'', customValue:''}; // always included
     // _formatterCode here your action here
-    return cellFormatter;
+    return cellFormatter; // always included
 }
 ```
 

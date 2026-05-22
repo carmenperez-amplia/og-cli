@@ -2,6 +2,8 @@
 
 The `customChart` widget displays data in a graphical format based on user-defined logic, integrating seamlessly with the Apache ECharts library (v5). It supports external APIs, internal data, or custom-fabricated data.
 
+Full documentation here: https://documentation.opengate.es/html/adv_widgets/custom-chart/config/customChart.html
+
 ## JSON Schema Configuration
 Refer to [Common Widget Fields](./commonFields.md) for grid and standard widget layout wrapping properties. Specific properties for `customChart` in `config` include:
 
@@ -48,18 +50,24 @@ Refer to [Common Widget Fields](./commonFields.md) for grid and standard widget 
   }
   ```
 
-## Script Parameters Context
+### Script Parameters Context
 
-The custom script receives the following parameters:
+When providing code in the widget (e.g., inside the platform UI, which is then mapped to the JSON), the script execution receives several parameters depending on the configuration:
 
-1. **`entityData`**: Provided if the dashboard is opened in a device/entity context.
-2. **`relatedEntities`**: Related entities data.
-3. **`timeserieData`** & **`alarmData`**: Contextual data from the platform.
-4. **`dashboardFilters`**: Dashboard filters contains the filters selected in the dashboard (e.g. tasks, jobs, operations, alarms, etc).
-5. **`filters`**: 
-   - `generic`: Widget generic text filter.
-   - `period`: Date range `{ "from": "...", "to": "..." }`.
-6. **`callback`**: Optional function used to send chart data when using asynchronous calls (`callback(chartConfig)`). Alternatively, the script can just `return chartConfig`.
+Apart of [Global Script Parameters](./utils.md), the following parameters are available:
+
+1. `filters`: Introduced by the user. Includes:
+   - `generic`: generic text filter.
+   - `period`: `{ "from": "...", "to": "..." }`.
+   - `column`: JSON object with filters per column (e.g., `{ "column_value": { "operator": "eq", "value": "text" } }`).
+   - `sort`: Array containing sorting preferences.
+2. `callback`: Function used to send table data only when the API/HTTP calls are resolved (e.g., `callback(data);`).
+
+### Utilities
+
+This widget has some extra utilities available in the global context.
+
+You have `Global Context Objects` and `Navigation & UI Utilities` available from [Utils](./utils.md)
 
 ## Expected Return Format
 
@@ -92,12 +100,4 @@ return {
     }
   ]
 };
-```
 
-## Built-in Utilities
-
-The execution context exposes several specific utilities for charts:
-- **`echarts`**: The core ECharts library instance.
-- **`ecStat`**: ECharts statistics library.
-- **`addChartEvent(event, handler, query)`**: Adds an event listener to the chart instance (e.g., handling clicks on data points).
-- **`$api`**: The standard OpenGate API client builder for fetching data.

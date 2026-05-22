@@ -79,21 +79,21 @@ Refer to [Common Widget Fields](./commonFields.md) for grid and standard widget 
 
 When providing code in the widget (e.g., inside the platform UI, which is then mapped to the JSON), the script execution receives several parameters depending on the configuration:
 
-1. **`entityData`**: Information about the entity if the dashboard is opened in an entity context.
-2. **`relatedEntities`**: Related entities data.
-3. **`timeserieData`** & **`alarmData`**: Contextual data from the platform.
-4. **`dashboardFilters`**: Dashboard filters contains the filters selected in the dashboard (e.g. tasks, jobs, operations, alarms, etc).
-5. **`filters`**: Introduced by the user. Includes:
+Apart of [Global Script Parameters](./utils.md), the following parameters are available:
+
+1. `filters`: Introduced by the user. Includes:
    - `generic`: generic text filter.
    - `period`: `{ "from": "...", "to": "..." }`.
    - `column`: JSON object with filters per column (e.g., `{ "column_value": { "operator": "eq", "value": "text" } }`).
    - `sort`: Array containing sorting preferences.
-6. **`pageElements`** and **`page`**: Used for pagination (e.g. `pageElements=10`, `page=1`), unavailable when `allowPagination` is 0 (disabled).
-7. **`callback`**: Function used to send table data only when the API/HTTP calls are resolved (e.g., `callback(data);`).
+2. `pageElements` and `page`: Used for pagination (e.g. `pageElements=10`, `page=1`), unavailable when `allowPagination` is 0 (disabled).
+3. `callback`: Function used to send table data only when the API/HTTP calls are resolved (e.g., `callback(data);`).
 
-### Expected Return Format
+### Utilities
 
-The script MUST return an array of JSON objects compatible with the configured columns.
+This widget has some extra utilities available in the global context.
+
+You have `Global Context Objects` and `Navigation & UI Utilities` available from [Utils](./utils.md)
 
 ## Columns Configuration
 For each column you can define:
@@ -138,4 +138,23 @@ Using `_table` displays a nested table inside the column:
         ['data 2', 'in', 'columns', 'order', { /* simple/complex object */ }]
     ]
 }
+```
+
+## Expected Return Format
+
+The script MUST return an array of JSON objects compatible with the configured columns.
+
+### Example Table Data Return
+```javascript
+return [
+  { 
+    field_one: 'value 1', 
+    field_two: { 
+        _chart: { 
+            // ECharts configuration object
+        }
+    } 
+  },
+  { field_one: 'value 1', field_two: 'value 2' }
+];
 ```

@@ -14,3 +14,10 @@ You have to consider this especial configuration in config:
 Paths in columns must have a complete datastream path without a field, and with the _current context, for example: `datastream1.datastream2._current.value` or `datastream1.datastream2._current.at`.
 
 All datastreams must exists in datamodels, otherwise the column will not be displayed or it will throw an error.
+
+### Filter configuration
+
+See [Filter field configuration](./commonFields.md#Filter-field-configuration).
+
+Supported fields are the datastreams in the datamodels with `_current` context or `_current.value.[field]`
+

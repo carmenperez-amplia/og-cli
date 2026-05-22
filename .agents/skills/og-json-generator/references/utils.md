@@ -1,6 +1,8 @@
 # Reference: Global Scripting Context & Utilities
 
-All custom scripts inside OpenGate's Advanced Widgets (such as `customTable`, `customChart`, `customAction`, etc.) run in a specialized sandbox. This document covers the globally available parameters, objects, and helper utilities.
+All custom scripts inside OpenGate's Advanced Widgets (such as `customTable`, `customChart`, etc.) run in a specialized sandbox. This document covers the globally available parameters, objects, and helper utilities.
+
+Each widget has its own configuration. These objects are available globally in runtime.
 
 ---
 
@@ -122,5 +124,23 @@ Only available when a template is opened via a timeseries table widget row.
     "EntityID": "entity_1",
     "Powersupply battery charge Current Value": 34
   }
+}
+```
+
+### 5. `dashboardFilters`
+
+Contains filters selected in the dashboard (e.g. tasks, jobs, operations, alarms, etc).
+
+```json
+{
+  "tasksSelected": [],
+  "jobsSelected": [],
+  "operationNameSelected": [],
+  "operationStatusSelected": [],
+  "operationResultSelected": [],
+  "alarmNameSelected": [],
+  "ruleNameSelected": [],
+  "alarmSeveritySelected": [],
+  "alarmStatusSelected": []
 }
 ```

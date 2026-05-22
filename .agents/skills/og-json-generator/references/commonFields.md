@@ -49,3 +49,82 @@ These standard options are shared across the `config` blocks of most widgets:
 | `icon` | `string` | - | The icon to display for the action. |
 | `_actionCode` | `string` | - | The javascript code to execute when the action is clicked. |
 | `title` | `string` | - | The title of the action. |
+
+## 4. Filter field configuration
+
+For those widgets that have a filter, they have the following configuration:
+
+| Field | Type | Default | Description |
+|---|---|---|---|
+| `filter` | `object` | {} | Filter configuration. It contains the following fields: |
+| `filter.type` | `string` | `"basic"` | Filter type (`"basic"`, `"advanced"` or `"shared"`). |
+| `filter.oql` | `string` | `` | OQL query string. |
+| `filter.value` | `string` | `` | Opengate Filter format json string scaped. |
+
+### Basic mode
+
+In basic mode, the filter is applied to all available entities in the widget. You have to introduce the value of the filter in the `value` field. Oql field is calculated automatically based on the widget type and the Ftype field.
+
+``` json
+{
+    "type": "basic",
+    "oql": "provision.administration.identifier ~ \"entity_3\" or provision.device.specificType ~ \"entity_3\" or provision.asset.specificType ~ \"entity_3\" or device.specificType ~ \"entity_3\" or asset.specificType ~ \"entity_3\" or resourceType ~ \"entity_3\" or provision.device.communicationModules[].subscriber.identifier ~ \"entity_3\" or provision.device.communicationModules[].subscription.identifier ~ entity_3",
+    "value": "entity_3"
+}
+```
+
+### Advanced mode
+
+In advanced mode, `oql` has the filter defined in OQL format and `value` field has an Opengate Filter format json string scaped based on oql and its calculated automatically from oql.
+
+``` json
+{
+    "type": "advanced",
+    "oql": "provision.administration.identifier._current.value eq \"entity_3\"",
+    "value": "{\"eq\":{\"provision.administration.identifier._current.value\":\"entity_3\"}}"
+}
+```
+
+### Shared mode
+
+In shared mode, only the `id` field is added to the filter configuration to identify the widget from which the filter is copied. This `id` must match with the `wid` of the widget in the grid layout.
+The rest of the fields are copied from the widget with the given `wid`.
+
+``` json
+{
+    "type": "shared",
+    "oql": "provision.administration.identifier._current.value eq \"entity_3\"",
+    "value": "{\"eq\":{\"provision.administration.identifier._current.value\":\"entity_3\"}}",
+    "id": "1779433574493-1"
+}
+```
+
+## OQL Query string
+
+OQL is a query language used in OpenGate to retrieve data from the platform and more sql friendly.
+
+``` oql
+resourceType eq "entity.device" or Battery._current.value gt 5 or (provision.string.enum._current.value in ("hola2","adios2"))
+```
+
+#### Operators supported by OQL:
+
+**1. Relational operators**
+
+* **eq** = equal
+* **neq** = not equal
+* **exists** = exists
+* **like or ~** = like
+* **gt or >** = greater than
+* **lt or <** = less than
+* **gte or > =** = greater than or equal to
+* **lte or <=** = less than or equal to
+* **in** = in (parameter must be an array of strings between parentheses: ('value1','value2','value3'))
+* **nin** = not in (parameter must be an array of strings between parentheses: ('value1','value2','value3'))
+
+**2. Logic operators**
+* **and** = and
+* **or** = or
+
+**3. Grouping**
+* **()** = parentheses
