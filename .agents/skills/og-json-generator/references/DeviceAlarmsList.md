@@ -1,8 +1,8 @@
 # Reference: `DeviceAlarmsList`
 
-The `DeviceAlarmsList` widget allows displaying alarms data in a table format with several features like grouping, filtering, and pagination.
+The `DeviceAlarmsList` widget allows displaying alarms data in a table format with several features like  filtering and pagination.
 
-You can see in ListsCommons.md the common configuration for all lists.
+You can see in [ListsCommons.md] the common configuration for all lists.
 
 You have to consider this especial configuration in config:
 
@@ -33,8 +33,6 @@ Columns path (._current.* not allowed) for DeviceAlarmsList:
 * **closureNote** Alarm Closure Note
 * **extra_info** Alarm Extra Info
 
-All datastreams must exists in datamodels, otherwise the column will not be displayed or it will throw an error.
-
 ### Filter configuration
 
 See [Filter field configuration](./commonFields.md#Filter-field-configuration).
@@ -63,3 +61,7 @@ Supported fields are the following:
 | alarm.closureUser | closureUser | 
 | alarm.closureNote | closureNote | 
 | alarm.extra_info | extra_info | 
+
+### Window filter
+
+This widget supports window filter, see [Window Filter](./commonFields.md#Window-filter).

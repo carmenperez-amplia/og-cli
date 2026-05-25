@@ -197,6 +197,7 @@ Where:
     * **firstPath**: The first path to the field to display in the column (string).
     * **expand**: Whether the column is expandable (boolean).
     * **isOgIdentifier**: Whether the column is an OpenGate identifier (boolean).
+    * **isDateTime**: Whether the column is a datetime (boolean).
     * **widths**: The widths of the column (object).
         * **width**: The width of the column (string).
         * **minWidth**: The minimum width of the column (string).

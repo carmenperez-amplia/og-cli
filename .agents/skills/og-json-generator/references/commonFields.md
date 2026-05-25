@@ -93,7 +93,7 @@ Both widgets must be in the same dashboard and have the same `Ftype`.
 
 ``` json
 {
-    "type": "shared",
+    "type": "advanced",
     "oql": "provision.administration.identifier._current.value eq \"entity_3\"",
     "value": "{\"eq\":{\"provision.administration.identifier._current.value\":\"entity_3\"}}",
     "id": "1779433574493-1"
@@ -158,3 +158,10 @@ resourceType eq "entity.device" or Battery._current.value gt 5 or (provision.str
 
 **3. Grouping**
 * **()** = parentheses
+
+## 7. Window filter
+
+Window filter is used to filter the data in a widget based on a time window. Not all the widgets support window filter (see specific widget fields). If a widget support window filter, it will have the following structure. 'windowFilter' can also be found in filter object because it is used to share with other widgets.
+
+All information about window filter variants can be found in [Window Filter Variants](./windowFilterVariants.md).
+
