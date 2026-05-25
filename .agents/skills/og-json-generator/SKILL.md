@@ -44,6 +44,30 @@ Inside each widget folder, a file named exactly `widget.json` must exist. It MUS
 
 ## Widget Configurations & Shared Properties
 
+> [!IMPORTANT]
+> **CRITICAL RULE: DO NOT INVENT WIDGET TYPES**
+> Under no circumstances may you invent, guess, or synthesize widget type names or configurations not documented in this repository. 
+> You MUST ONLY use the following **12 verified/supported widget types**. Any type not listed below is unsupported and will fail validation or platform rendering:
+>
+> 1. `customTable`: Configurable tables with custom JavaScript evaluations.
+> 2. `customChart`: Custom ECharts v5 integration (line, bar, stats charts).
+> 3. `actionButton`: Action buttons and dynamic schemas (replacing deprecated `customAction`).
+> 4. `clock`: Live real-time clock showing browser timezone (zero-configuration).
+> 5. `markdown`: Static Markdown content renderer supporting CommonMark formatting.
+> 6. `iframeWidget`: Embedded external web pages or custom button launch frames.
+> 7. `DatapointsList`: Datastream datapoints list showing entity telemetry tables.
+> 8. `FullDevicesList`: Comprehensive list of devices/assets and operational status.
+> 9. `DeviceAlarmsList`: Live list of alarms with severity and rule matches.
+> 10. `maps`: Google Maps widget showing GPS locations of devices.
+> 11. `entityTimeseriesMultipleHistory`: Historical time series charts using dataset arrays.
+> 12. `datamodelBrowser`: Read-only browser for data models and datastreams catalog.
+>
+> Legacy/Deprecated widget types:
+> - `customAction` (Deprecated in v13.1.0; use `actionButton` instead).
+> - `summaryChart` (Unverified; summarises alarm counts over a window).
+> - `ExecutionsList` (Unverified; lists operation execution tables).
+> - `BundlesList` (Unverified; lists software/firmware bundles).
+
 To optimize configuration schema structures and reduce redundancy, all common properties (such as grid layout coords, `type`, `wid`, and general configuration options like `title`, `boxed`, and `hideWidgetTitle`) have been centralized.
 
 * Refer to the **[Common Widget Fields Reference](file:///home/ubuntu/development/og-cli/.agents/skills/og-json-generator/references/commonFields.md)** before writing any widget JSON block to learn about shared parameters.
@@ -103,6 +127,9 @@ For complex implementations that involve advanced custom script evaluations or s
 * [Custom Table Reference (customTable)](file:///home/ubuntu/development/og-cli/.agents/skills/og-json-generator/references/customTable.md) - Deep-dive into scripting context, parameters, and complex embedded charts/tables format.
 * [Custom Chart Reference (customChart)](file:///home/ubuntu/development/og-cli/.agents/skills/og-json-generator/references/customChart.md) - Custom ECharts integration.
 * [Custom Action Reference (customAction)](file:///home/ubuntu/development/og-cli/.agents/skills/og-json-generator/references/customAction.md) - Context manipulation, button operations, and expert-mode dynamic forms.
+* [Clock Reference (clock)](file:///home/ubuntu/development/og-cli/.agents/skills/og-json-generator/references/clock.md) - Zero-config live clock widget. No Ftype or config block needed.
+* [Markdown Reference (markdown)](file:///home/ubuntu/development/og-cli/.agents/skills/og-json-generator/references/markdown.md) - Markdown content widget. Full syntax support, content field format, grid wrapper example.
+* [Iframe Reference (iframeWidget)](file:///home/ubuntu/development/og-cli/.agents/skills/og-json-generator/references/iframeWidget.md) - HTML iframe embedding widget. Supports URL rendering and custom button actions.
 * [Global Context & Utilities Reference](file:///home/ubuntu/development/og-cli/.agents/skills/og-json-generator/references/utils.md) - Standard sandboxed global objects (`$api`, `$user`, `$moment`, `http`) and UI navigation routing.
 * [Datamodel & Datastreams Reference](file:///home/ubuntu/development/og-cli/.agents/skills/og-json-generator/references/datamodel.md) - Full JSON schema for creating datamodels with categories and datastreams. Covers all fields (`period`, `access`, `schema`, `storage`, `unit`, `icon`), schema types, storage periods, and `og dm` CLI commands.
 
