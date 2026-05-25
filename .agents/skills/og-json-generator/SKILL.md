@@ -47,7 +47,7 @@ Inside each widget folder, a file named exactly `widget.json` must exist. It MUS
 > [!IMPORTANT]
 > **CRITICAL RULE: DO NOT INVENT WIDGET TYPES**
 > Under no circumstances may you invent, guess, or synthesize widget type names or configurations not documented in this repository. 
-> You MUST ONLY use the following **12 verified/supported widget types**. Any type not listed below is unsupported and will fail validation or platform rendering:
+> You MUST ONLY use the following **15 verified/supported widget types**. Any type not listed below is unsupported and will fail validation or platform rendering:
 >
 > 1. `customTable`: Configurable tables with custom JavaScript evaluations.
 > 2. `customChart`: Custom ECharts v5 integration (line, bar, stats charts).
@@ -61,6 +61,9 @@ Inside each widget folder, a file named exactly `widget.json` must exist. It MUS
 > 10. `maps`: Google Maps widget showing GPS locations of devices.
 > 11. `entityTimeseriesMultipleHistory`: Historical time series charts using dataset arrays.
 > 12. `datamodelBrowser`: Read-only browser for data models and datastreams catalog.
+> 13. `devicePlansBrowser`: Catalog browser widget to inspect and filter active device plans.
+> 14. `connectorFunctionsBrowser`: Browser widget to list and monitor connector functions status.
+> 15. `connectorFunctionsCatalogBrowser`: Catalog browser widget to inspect available connector templates.
 >
 > Legacy/Deprecated widget types:
 > - `customAction` (Deprecated in v13.1.0; use `actionButton` instead).
@@ -78,6 +81,7 @@ The main complex widgets have dedicated technical specifications:
 * **Custom Table (`customTable`)**: Configured with `allowPagination`, `pageElements`, `compactTable`, and a robust `columns` array definition. See [customTable.md](file:///home/ubuntu/development/og-cli/.agents/skills/og-json-generator/references/customTable.md) for full context.
 * **Custom Chart (`customChart`)**: Seamless v5 ECharts integrations. See [customChart.md](file:///home/ubuntu/development/og-cli/.agents/skills/og-json-generator/references/customChart.md).
 * **Custom Action (`customAction`)**: Multi-script operations (Expert Mode and Action submissions). See [customAction.md](file:///home/ubuntu/development/og-cli/.agents/skills/og-json-generator/references/customAction.md).
+* **Browsers (`datamodelBrowser`, `devicePlansBrowser`, `connectorFunctionsBrowser` & `connectorFunctionsCatalogBrowser`)**: Catalog and model browsers. See [browsers.md](file:///home/ubuntu/development/og-cli/.agents/skills/og-json-generator/references/browsers.md).
 
 ---
 

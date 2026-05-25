@@ -13,7 +13,9 @@ Refer to [Common Widget Fields](./commonFields.md) for grid and standard widget 
 }
 ```
 
-> Note: `clock` has **no `Ftype`** and **no `config`** block. Both must be omitted entirely.
+> [!NOTE]
+> En la exportación directa de la plataforma (`recursos/workspace_0`), el widget `clock` omite las claves `Ftype` y `config`. Sin embargo, en ciertos entornos o versiones de OpenGate con esquemas de validación estrictos, es posible requerir o inicializar por defecto la propiedad `config` como un objeto vacío (`{}`) y `Ftype` como `null` o vacío (`""`) para pasar la validación JSON.
+> Ambos formatos son válidos y compatibles.
 
 ---
 
