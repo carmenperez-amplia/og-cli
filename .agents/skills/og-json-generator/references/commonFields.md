@@ -88,7 +88,7 @@ In advanced mode, `oql` has the filter defined in OQL format and `value` field h
 ### Shared mode
 
 In shared mode, only the `id` field is added to the filter configuration to identify the widget from which the filter is copied. This `id` must match with the `wid` of the widget in the grid layout.
-The rest of the fields are copied from the widget with the given `wid`.
+Other fields in filter object (type, oql, value) must be the copied from the widget that it refers to (`wid`).
 Both widgets must be in the same dashboard and have the same `Ftype`.
 
 ``` json
@@ -100,7 +100,36 @@ Both widgets must be in the same dashboard and have the same `Ftype`.
 }
 ```
 
-## OQL Query string
+## 5. Widget internal filters
+
+Widgets with `Ftype` != "" can have internal filters that are applied to the data retrieved by the widget.
+
+- **privateFilter**: It can be used to filter the data in a private way, without affecting other widgets. It must contain OQL format query string.
+
+``` json
+{
+    "privateFilter": "alarm.identifier eq \"asdf\"",
+}
+```
+
+- **templateFilter**: It can be used to filter the data in a template. It must contain OQL format query string.
+
+The differene from `privateFilter` is that `templateFilter` can use variables from the widget's context. The variable are enclosed in `$variable_name$` (without quotes) and can be used in the OQL query string. Numbers must not be enclosed in quotes, strings must be enclosed in quotes.
+
+``` json
+{
+    "templateFilter": "alarm.entityIdentifier eq \"$provision.device.identifier$\""
+}
+```
+or
+``` json
+{
+    "templateFilter": "device.powersupply.battery.charge gt $device.battery.current$"
+}
+```
+
+
+## 6. OQL Query string
 
 OQL is a query language used in OpenGate to retrieve data from the platform and more sql friendly.
 
