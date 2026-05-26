@@ -565,7 +565,7 @@ Configuration for MCP clients:
 }
 ```
 
-For a detailed guide on how prompts, resources, and tools work together, see [doc/mcp-integration.md](doc/mcp-integration.md).
+For a detailed guide on how prompts, resources, and tools work together, see [.agents/skills/og_cli/mcp-integration.md](.agents/skills/og_cli/mcp-integration.md).
 
 #### Tools
 
@@ -641,7 +641,7 @@ devices_search(query: "device.temperature.value gt 50 AND provision.device.opera
 
 | Prompt | Description |
 |--------|-------------|
-| `opengate-guide` | Complete guide covering all tools, query syntax with operator mapping (ES/EN → eq/like/gt/...), fields per entity, job creation format, IoT data collection, and worked examples. See [doc/mcp-prompts.md](doc/mcp-prompts.md) for full content. |
+| `opengate-guide` | Complete guide covering all tools, query syntax with operator mapping (ES/EN → eq/like/gt/...), fields per entity, job creation format, IoT data collection, and worked examples. See [.agents/skills/og_cli/mcp-prompts.md](.agents/skills/og_cli/mcp-prompts.md) for full content. |
 
 #### Resources
 
@@ -660,8 +660,8 @@ og version
 
 | Document | Description |
 |----------|-------------|
-| [doc/mcp-integration.md](doc/mcp-integration.md) | MCP architecture: how prompts, resources, and tools work together |
-| [doc/mcp-prompts.md](doc/mcp-prompts.md) | Full content of MCP prompts with explanation of each section |
+| [.agents/skills/og_cli/mcp-integration.md](.agents/skills/og_cli/mcp-integration.md) | MCP architecture: how prompts, resources, and tools work together |
+| [.agents/skills/og_cli/mcp-prompts.md](.agents/skills/og_cli/mcp-prompts.md) | Full content of MCP prompts with explanation of each section |
 | [INTEGRATION_PLAN.md](INTEGRATION_PLAN.md) | API integration roadmap and progress |
 | [CLAUDE.md](CLAUDE.md) | Instructions for Claude Code when working in this repo |
 
