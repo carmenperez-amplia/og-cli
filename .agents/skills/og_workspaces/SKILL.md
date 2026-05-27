@@ -36,9 +36,12 @@ Defines the global view configurations (`_id`, `title`, `icon`, etc.).
 >     "id": "dashboard-1"
 >   },
 >   "_id": "dashboard-1",
->   "title": "My Dashboard"
+>   "title": "My Dashboard",
+>   "[...]": "[...]
 > }
 > ```
+
+You can find more information about dashboard configurations in the [`reference/dashboards.md](./reference/dashboards.md)` file.
 
 ### 3. `widget.json`
 Inside each widget folder, a file named exactly `widget.json` must exist. It MUST be a `GridItem` object containing the layout coordinates (`w`, `h`, `x`, `y`, `i`) AND a `definition` object with the widget properties, not just the widget config directly.
