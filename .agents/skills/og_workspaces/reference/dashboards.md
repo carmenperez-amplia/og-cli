@@ -65,7 +65,7 @@ Here it is a full example of a dashboard JSON configuration:
 | **allowedProfiles** | `["root", "super_admin_domain", "admin_domain", "admin", "advanced", "viewer"]` | Array | Yes  | Array of profiles that have access to the dashboard. Always have this value set to this array. |
 | **users** | `[]` | Array | Yes  | Array of users that have readable access to the dashboard |
 | **workgroups** | `[]` | Array | Yes  | Unused |
-| **domains** | `[]` | Array | Yes  | Array of domains that have readable access to the dashboard |
+| **domains** | `[]` | Array | Yes  | Array of organizations that have readable access to the dashboard |
 | **lastAccess** | `2026-05-22T07:06:29.436Z` | String | No  | Last access date to the dashboard | |
 | **editable** | `true` | Booleano | Yes  | Always true |
 | **backgroundImageSize** | `100% 100%` | String | Yes  | Background image size. Values: '100% 100%'. Deprecated |

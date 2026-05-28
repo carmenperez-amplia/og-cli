@@ -24,6 +24,8 @@ local_workspaces/
 ### 1. `workspace.json`
 Contains the high-level configuration (`_id`, `name`, `others`). It MUST NOT internally embed the `dashboards` array; the CLI reads the subdirectories automatically.
 
+You can find more information about workspace JSON structure in the [`reference/workspaces.md](./reference/workspaces.md)` file.
+
 ### 2. `dashboard.json`
 Defines the global view configurations (`_id`, `title`, `icon`, etc.). 
 
