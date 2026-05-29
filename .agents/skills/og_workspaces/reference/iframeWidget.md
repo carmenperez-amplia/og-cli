@@ -1,6 +1,6 @@
 # Reference: `iframeWidget`
 
-The `iframeWidget` allows embedding external web pages or dashboards directly into your OpenGate dashboard using an HTML `<iframe>`. It can render the page directly or display a button that launches the page.
+Embeds external web pages or dashboards directly into your OpenGate dashboard using an HTML `<iframe>` or exposes a button that launches the URL.
 
 ## JSON Schema Configuration
 
@@ -31,13 +31,14 @@ Refer to [Common Widget Fields](./commonFields.md) for grid and standard widget 
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `url` | `string` | ✅ | The absolute HTTP/HTTPS URL of the page to embed. |
-| `showAsButton` | `boolean` | — | If `true`, the widget will render a button that opens the URL instead of embedding it directly inside an iframe. Default `false`. |
-| `title` | `string` | — | Widget header or button text. |
+| `url` | `string` | ✅ | Absolute HTTP/HTTPS URL to embed. |
+| `showAsButton` | `boolean` | — | If `true`, renders a clickable launcher button instead of embedding inline. Default `false`. |
+| `title` | `string` | — | Widget header or button label text. |
 | `hideWidgetTitle` | `string` | — | `"visible"` or `"hidden"`. Default `"visible"`. |
-| `boxed` | `boolean` | — | Wrap in a card border. Default `false`. |
-| `reloadPeriod` | `string` | — | Reload interval in seconds. `"0"` disables. |
-| `customActions` | `null\|array` | — | Optional custom actions. Usually `null`. |
+| `boxed` | `boolean` | — | Renders a card border boundary. Default `false`. |
+| `reloadPeriod` | `string` | — | Auto-refresh rate in seconds. `"0"` to disable. |
+| `customActions` | `null\|array` | — | Toolbar actions array, default `null`. |
+
 
 ---
 

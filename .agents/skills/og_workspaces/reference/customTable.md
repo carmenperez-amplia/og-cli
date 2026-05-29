@@ -79,6 +79,11 @@ Refer to [Common Widget Fields](./commonFields.md) for grid and standard widget 
 
 When providing code in the widget (e.g., inside the platform UI, which is then mapped to the JSON), the script execution receives several parameters depending on the configuration:
 
+> [!CAUTION]
+> For the `_widgetConfigCode` field you MUST read the full documentation here: https://documentation.opengate.es/ux/workspaces/dashboards/widgets/advanced/customtable/index.html 
+
+*Below you have a summary of the official documentation*
+
 Apart of [Global Script Parameters](./utils.md), the following parameters are available:
 
 1. `filters`: Introduced by the user. Includes:
@@ -89,11 +94,6 @@ Apart of [Global Script Parameters](./utils.md), the following parameters are av
 2. `pageElements` and `page`: Used for pagination (e.g. `pageElements=10`, `page=1`), unavailable when `allowPagination` is 0 (disabled).
 3. `callback`: Function used to send table data only when the API/HTTP calls are resolved (e.g., `callback(data);`).
 
-### Utilities
-
-This widget has some extra utilities available in the global context.
-
-You have `Global Context Objects` and `Navigation & UI Utilities` available from [Utils](./utils.md)
 
 ## Columns Configuration
 For each column you can define:

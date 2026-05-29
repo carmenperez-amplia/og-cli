@@ -1,6 +1,6 @@
 # Reference: `markdown`
 
-The `markdown` widget renders static or dynamic Markdown content inside a dashboard tile. Useful for documentation panels, instructions, dashboards headers, or any rich-text block.
+Renders static or dynamic Markdown content inside a dashboard tile for documentation, headers, or rich-text.
 
 ## JSON Schema Configuration
 
@@ -22,7 +22,8 @@ Refer to [Common Widget Fields](./commonFields.md) for grid and standard widget 
 }
 ```
 
-> Note: `markdown` has **no `Ftype`** field — omit it entirely.
+> Note: `markdown` has **no `Ftype`** field (omit entirely).
+
 
 ---
 
@@ -30,12 +31,13 @@ Refer to [Common Widget Fields](./commonFields.md) for grid and standard widget 
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `content` | `string` | ✅ | The Markdown string to render. Supports all standard Markdown syntax (headings, lists, bold/italic, code blocks, tables, etc.). Use `\n` for newlines inside the JSON string. |
-| `title` | `string` | — | Widget header text (shown if `hideWidgetTitle` is `"visible"`). |
+| `content` | `string` | ✅ | Markdown content to render (use `\n` for newlines inside JSON string). |
+| `title` | `string` | — | Widget header title. |
 | `hideWidgetTitle` | `string` | — | `"visible"` or `"hidden"`. Default `"visible"`. |
-| `boxed` | `boolean` | — | Wrap in a card border. Default `false`. |
-| `reloadPeriod` | `string` | — | Reload interval in seconds. `"0"` disables. |
-| `customActions` | `null\|array` | — | Optional custom row actions. Usually `null`. |
+| `boxed` | `boolean` | — | Wraps widget in a card border. Default `false`. |
+| `reloadPeriod` | `string` | — | Auto-refresh interval in seconds. `"0"` to disable. |
+| `customActions` | `null\|array` | — | Toolbar actions array, default `null`. |
+
 
 ---
 
@@ -92,9 +94,3 @@ From `recursos/workspace_0` (SmartCity-Demo, OpenGate v13.1.0):
     }
 }
 ```
-
----
-
-## Source
-
-Verified from `recursos/workspace_0` (SmartCity-Demo, OpenGate v13.1.0).

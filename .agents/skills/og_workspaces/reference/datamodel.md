@@ -4,6 +4,8 @@ A **Datamodel** defines the schema of the data collected by entities (devices, a
 
 Datamodels are managed via the `og dm` CLI commands and are also browsable in the platform UI via the `datamodelBrowser` widget.
 
+Full documentation here: https://documentation.opengate.es/2-howtos/3-data-modelling/index.html
+
 ---
 
 ## JSON Schema

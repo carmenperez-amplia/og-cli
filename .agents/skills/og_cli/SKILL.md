@@ -5,16 +5,17 @@ description: "Comprehensive documentation and guidelines for the OpenGate CLI to
 
 # OpenGate CLI Skill
 
-This skill provides comprehensive documentation and developer guidelines for the OpenGate CLI (`og`), which integrates CLI commands, an interactive TUI, and a Model Context Protocol (MCP) server for LLMs.
+Developer guidelines for the OpenGate CLI (`og`), supporting terminal execution, interactive TUI, and MCP.
 
 ---
 
 ## 1. Project & Architecture Overview
 
-`og` is a CLI tool for the **OpenGate IoT platform REST API** by Amplía Soluciones. It is built in Go using Cobra (commands), Viper (configuration), and Bubble Tea + Lip Gloss (interactive TUI).
+`og` is the Cobra/Viper-based Go CLI for the OpenGate REST API, supporting Bubble Tea TUI.
 
 ### Three Execution Modes
-The CLI has three interfaces exposing identical API capabilities:
+The CLI supports three execution modes:
+
 
 | Mode | Invocation | Implementation | Description |
 |---|---|---|---|
@@ -62,9 +63,10 @@ Variables prefixed with `OG_` override file config values:
 - *Note:* A `.env` file in the current working directory is loaded automatically.
 
 ### Web API Authentication & Concurrency
-- Workspaces and dashboards live in the Web API (`/api/...`), separate from the South/North IoT APIs.
-- The platform enforces a **single active web session per user**. Logging in via the browser UI invalidates the CLI session JWT.
-- **Robust Auto-Reauth:** The CLI automatically intercepts `401 Unauthorized` responses, triggers a transparent background login/re-authentication using stored credentials, and retries the request seamlessly.
+- Workspaces/dashboards live in the Web API (`/api/...`), separate from North/South IoT APIs.
+- **Single active session enforced:** Browser login invalidates the CLI JWT session.
+- **Auto-Reauth:** CLI intercepts `401 Unauthorized`, re-authenticates in the background, and retries the request seamlessly.
+
 
 ---
 

@@ -74,7 +74,7 @@ Here it is a full example of a dashboard JSON configuration:
 | **templateConfig** | *null* | Null | No | template export configuration |
 | **backgroundColor** | *null* | Null | No | Deprecated|
 | **grid** | `[]` | Array | No  | Widget grid items |
-| **extraConfig.cellsWidth** | `-small` | String | No | Grid cells width. Values: '' (default), '-small' |
+| **extraConfig.cellsWidth** | `-small` | String | No | Grid cells width. Values: '' (default, 12 columns), '-small' (24 columns) |
 | **extraConfig.cellHeight** | `50` | Integer | No  | Grid cells height (minimum value is 10) |
 | **extraConfig.dashboardRefreshInterval** | `1800` | String (Number) | No | Dashboard refresh interval in seconds (Values: 0, 5(minutes), 10(minutes), 15(minutes), 30(minutes), 1(hour)), always in seconds format |
 | **extraConfig.showBanner** | `false` | Booleano | No  | Shows the banner (header) of the dashboard |

@@ -1,8 +1,8 @@
 # Reference: `customChart`
 
-The `customChart` widget displays data in a graphical format based on user-defined logic, integrating seamlessly with the Apache ECharts library (v5). It supports external APIs, internal data, or custom-fabricated data.
+Displays data graphically by integrating with Apache ECharts (v5). Supports external, internal, or mock data.
 
-Full documentation here: https://documentation.opengate.es/html/adv_widgets/custom-chart/config/customChart.html
+Full documentation here: https://documentation.opengate.es/ux/workspaces/dashboards/widgets/advanced/customchart/index.html
 
 ## JSON Schema Configuration
 Refer to [Common Widget Fields](./commonFields.md) for grid and standard widget layout wrapping properties. Specific properties for `customChart` in `config` include:
@@ -65,9 +65,8 @@ Apart of [Global Script Parameters](./utils.md), the following parameters are av
 
 ### Utilities
 
-This widget has some extra utilities available in the global context.
+Includes `Global Context Objects` and `Navigation & UI Utilities` from [Utils](./utils.md).
 
-You have `Global Context Objects` and `Navigation & UI Utilities` available from [Utils](./utils.md)
 
 ## Expected Return Format
 
