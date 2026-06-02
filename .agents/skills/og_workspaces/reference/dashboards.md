@@ -79,3 +79,10 @@ Here it is a full example of a dashboard JSON configuration:
 | **extraConfig.dashboardRefreshInterval** | `1800` | String (Number) | No | Dashboard refresh interval in seconds (Values: 0, 5(minutes), 10(minutes), 15(minutes), 30(minutes), 1(hour)), always in seconds format |
 | **extraConfig.showBanner** | `false` | Booleano | No  | Shows the banner (header) of the dashboard |
 | **extraConfig.favourite** | `false` | Booleano | No  | Mark if the dashboard is a favorite |
+# Widgets Included in Example Dashboard
+
+The example dashboard includes the following widgets:
+
+- **OGScheduleHistoryBrowser** – Schedules history list widget.
+- **rulesBrowser** – Read‑only view of platform rules. See [Reference: Rules Browser](./rulesBrowser.md).
+- **customTable** – Custom table widget for plant metrics. See [Reference: customTable](./customTable.md).
